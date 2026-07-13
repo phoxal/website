@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="PHOXAL is an open robotics platform for simulation, runtime orchestration, deployment, and observability, built to power autonomous urban operations."
+      content="PHOXAL is a pre-alpha Rust-first robotics framework for manifest-driven robot validation, Webots simulation, typed Zenoh runtimes, deployment, and operator observability."
     >
     <meta name="theme-color" content="#06080B">
 
-    <meta property="og:title" content="PHOXAL">
+    <meta property="og:title" content="PHOXAL | Pre-alpha Rust Robotics Framework">
     <meta
       property="og:description"
-      content="Open robotics infrastructure for autonomous urban operations."
+      content="Manifest-driven robotics infrastructure for simulation, deployment, and operator-facing observability."
     >
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://phoxal.com/assets/logo_phoxal_vertical.png">
 
-    <title>PHOXAL | Open Robotics Infrastructure</title>
+    <title>PHOXAL | Pre-alpha Rust Robotics Framework</title>
 
     <link rel="icon" href="assets/phoxal-mark-transparent.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,8 +38,9 @@
           <span>PHOXAL</span>
         </a>
 
-        <nav class="nav-links" aria-label="Social links">
+        <nav class="nav-links" aria-label="Project links">
           <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
+          <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
           <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>
         </nav>
       </header>
@@ -48,26 +49,27 @@
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-copy">
             <img class="hero-logo" src="assets/phoxal-logo-vertical-transparent.png" alt="PHOXAL Robotics Framework">
-            <p class="status-badge">Active development</p>
-            <h1 id="hero-title">Open robotics infrastructure for autonomous urban operations.</h1>
+            <p class="status-badge">Pre-alpha / active rewrite</p>
+            <h1 id="hero-title">Manifest-driven robotics infrastructure for robots that have to leave simulation.</h1>
             <p class="hero-description">
-              PHOXAL is building an open robotics platform for simulation, runtime orchestration,
-              deployment, and observability, designed to power real autonomous robots in urban
-              environments.
+              PHOXAL is a Rust-first robotics suite for authored robot and component models,
+              typed Zenoh communication, Webots simulation, isolated runtime and driver processes,
+              deployment tooling, and operator-facing observability.
             </p>
             <p class="hero-note">
-              Starting with systems for sidewalk and street-maintenance robotics.
+              It is pre-alpha. APIs, catalogs, and runtime contracts are expected to break loudly
+              while the framework converges.
             </p>
 
             <div class="hero-actions" role="group" aria-label="Primary links">
-              <a class="button button-primary" href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">
-                <span>GitHub</span>
+              <a class="button button-primary" href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">
+                <span>View framework</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17 17 7M9 7h8v8" />
                 </svg>
               </a>
-              <a class="button button-secondary" href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">
-                <span>LinkedIn</span>
+              <a class="button button-secondary" href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">
+                <span>Org profile</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17 17 7M9 7h8v8" />
                 </svg>
@@ -77,12 +79,11 @@
 
           <aside class="hero-visual" aria-labelledby="visual-title">
             <div class="visual-copy">
-              <p class="eyebrow">System profile</p>
-              <h2 id="visual-title">A platform layer for robotics teams moving toward real-world operation.</h2>
+              <p class="eyebrow">System promise</p>
+              <h2 id="visual-title">One manifest, one typed bus, one operational path.</h2>
               <p>
-                Core systems are organized around validated simulation loops,
-                isolated runtime services, repeatable deployment, and operator-grade
-                observability.
+                Start from robot.yaml and component manifests; validate the graph; simulate with
+                logical time; then keep the same service boundaries when moving toward hardware.
               </p>
             </div>
             <img src="assets/phoxal-system.svg" alt="">
@@ -91,11 +92,12 @@
 
         <section class="section platform" aria-labelledby="platform-title">
           <div class="section-heading">
-            <p class="eyebrow">Platform</p>
+            <p class="eyebrow">Architecture</p>
             <div>
-              <h2 id="platform-title">From simulation to real-world operation.</h2>
+              <h2 id="platform-title">A coherent path from model to robot.</h2>
               <p class="section-intro">
-                A modular robotics stack for moving from simulation to real-world operation.
+                The suite is opinionated by design. It avoids hidden runtime discovery and favors
+                explicit contracts the CLI can validate before launch.
               </p>
             </div>
           </div>
@@ -103,37 +105,46 @@
           <div class="feature-grid">
             <article class="feature-card">
               <span class="feature-index">01</span>
-              <h3>Runtime Architecture</h3>
-              <p>Typed, isolated runtimes for perception, control, autonomy, and robot services.</p>
+              <h3>Authored robot model</h3>
+              <p>Robot manifests, structure files, and component definitions remain the source of truth.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">02</span>
-              <h3>Simulation</h3>
-              <p>Simulation-first workflows for validating robot behavior before real-world deployment.</p>
+              <h3>Generated runtime graph</h3>
+              <p>The CLI resolves artifacts, validates compatibility, and materializes the launch plan.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">03</span>
-              <h3>Deployment</h3>
-              <p>Containerized service orchestration for local development, robots, and fleet-scale systems.</p>
+              <h3>Typed Zenoh contracts</h3>
+              <p>Zenoh is the transport, but every topic, query, and command is bound to a Rust contract.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">04</span>
-              <h3>Observability</h3>
-              <p>Telemetry, logs, visualization, and debugging surfaces for operator-facing robotics.</p>
+              <h3>Isolated participants</h3>
+              <p>Platform services, hardware drivers, user services, and tools run as separate processes.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-index">05</span>
+              <h3>Webots simulation</h3>
+              <p>Simulation uses framework-owned contracts and logical time instead of a second mental model.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-index">06</span>
+              <h3>Operator observability</h3>
+              <p>Telemetry, logs, visualization, and diagnostics are treated as part of the runtime surface.</p>
             </article>
           </div>
         </section>
 
         <section class="section urban" aria-labelledby="urban-title">
           <div class="section-heading">
-            <p class="eyebrow">Urban Robotics</p>
+            <p class="eyebrow">Operational target</p>
             <div>
-              <h2 id="urban-title">Open framework, real operational target.</h2>
+              <h2 id="urban-title">The first customer is the robot we are building.</h2>
               <p class="section-intro">
-                PHOXAL is being developed as the foundation for autonomous robotic services
-                in urban environments. The long-term goal is to operate robots that help
-                maintain sidewalks, streets, and public spaces with reliable, observable,
-                and simulation-validated autonomy.
+                PHOXAL is general enough for mobile robots, but its forcing function is sidewalk
+                and street-maintenance autonomy: durable systems that can be modeled, validated,
+                deployed, observed, and fixed without hidden state.
               </p>
             </div>
           </div>
@@ -141,15 +152,15 @@
           <ul class="vision-grid">
             <li>
               <span>01</span>
-              <p>Sidewalk and street-maintenance systems</p>
+              <p>Sidewalk and street-maintenance robots</p>
             </li>
             <li>
               <span>02</span>
-              <p>Simulation-validated autonomy before deployment</p>
+              <p>Simulation-to-hardware parity</p>
             </li>
             <li>
               <span>03</span>
-              <p>Observable services for real operational environments</p>
+              <p>Fleet and operator surfaces without custom glue</p>
             </li>
           </ul>
         </section>
@@ -157,11 +168,13 @@
         <section class="section status" aria-labelledby="status-title">
           <div>
             <p class="eyebrow">Status</p>
-            <h2 id="status-title">Active development.</h2>
+            <h2 id="status-title">Pre-alpha. Expect loud breaks.</h2>
           </div>
           <p>
-            PHOXAL is currently in active development. Early architecture, simulation,
-            runtime, and autonomy systems are being built publicly.
+            The architecture is in active rewrite and the public repositories are moving quickly.
+            PHOXAL is ready to inspect, discuss, and use as a design direction; it is not yet a
+            stable dependency. Breaking API, catalog, and runtime changes are intentional and
+            should fail loudly instead of silently drifting.
           </p>
         </section>
       </main>
@@ -170,6 +183,7 @@
         <p>&copy; PHOXAL</p>
         <nav aria-label="Footer links">
           <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
+          <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
           <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>
           <a href="https://www.youtube.com/@phoxalhq" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on YouTube">YouTube</a>
         </nav>
