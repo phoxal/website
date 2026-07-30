@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" fill="none">
+  <rect x="76" y="70" width="568" height="420" rx="6" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <path d="M76 154h568M76 238h568M76 322h568M76 406h568M190 70v420M304 70v420M418 70v420M532 70v420" stroke="#E5E7EB" stroke-width="1"/>
+  <path d="M171 348h104l74-117h156" stroke="#000000" stroke-width="2.4" stroke-linecap="square"/>
+  <path d="M171 348h104l74 64h156" stroke="#000000" stroke-width="1.8" stroke-linecap="square" opacity=".72"/>
+  <path d="M215 231h134l72 117h116" stroke="#000000" stroke-width="1.8" stroke-linecap="square" opacity=".58"/>
+  <rect x="138" y="316" width="94" height="64" rx="4" fill="#FFFFFF" stroke="#000000" stroke-opacity=".44"/>
+  <rect x="319" y="199" width="95" height="64" rx="4" fill="#FFFFFF" stroke="#000000" stroke-opacity=".52"/>
+  <rect x="489" y="199" width="94" height="64" rx="4" fill="#FFFFFF" stroke="#000000" stroke-opacity=".46"/>
+  <rect x="489" y="316" width="94" height="64" rx="4" fill="#FFFFFF" stroke="#000000" stroke-opacity=".44"/>
+  <rect x="489" y="380" width="94" height="64" rx="4" fill="#FFFFFF" stroke="#000000" stroke-opacity=".42"/>
+  <circle cx="185" cy="348" r="9" fill="#000000"/>
+  <circle cx="366" cy="231" r="9" fill="#000000"/>
+  <circle cx="536" cy="231" r="7" fill="#000000"/>
+  <circle cx="536" cy="348" r="7" fill="#000000"/>
+  <circle cx="536" cy="412" r="7" fill="#000000"/>
+  <path d="M146 438h108M146 456h68M466 118h108M506 136h68" stroke="#6B7280" stroke-width="2" stroke-linecap="square" opacity=".28"/>
+  <path d="M110 105h42M110 123h78M110 141h55" stroke="#000000" stroke-width="2" stroke-linecap="square" opacity=".42"/>
+  <path d="M592 438h42M556 456h78M579 474h55" stroke="#000000" stroke-width="2" stroke-linecap="square" opacity=".36"/>
+  <path d="M95 87h530v386H95z" stroke="#000000" stroke-opacity=".12"/>
+  <path d="M360 52v43M360 465v43M58 280h43M619 280h43" stroke="#000000" stroke-width="2" stroke-linecap="square" opacity=".38"/>
+  <circle cx="360" cy="280" r="180" stroke="#000000" stroke-opacity=".08"/>
+  <circle cx="360" cy="280" r="112" stroke="#000000" stroke-opacity=".1"/>
+</svg>
