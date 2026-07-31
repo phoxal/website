@@ -38,7 +38,8 @@
           <span>PHOXAL</span>
         </a>
 
-        <nav class="nav-links" aria-label="Project links">
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#build-contract">Build contract</a>
           <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
           <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
           <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>
@@ -136,6 +137,70 @@
           </div>
         </section>
 
+        <section id="build-contract" class="section" aria-labelledby="build-contract-title">
+          <div class="section-heading">
+            <p class="eyebrow">Build contract</p>
+            <div>
+              <h2 id="build-contract-title">Native dependencies live with the runtime that needs them.</h2>
+              <p class="section-intro">
+                A runnable Cargo package declares the Debian packages needed to compile it. PHOXAL
+                reads only the manifests selected for the robot and builds one shared, deterministic
+                container image for that exact requirement set.
+              </p>
+            </div>
+          </div>
+
+          <div class="build-contract-grid">
+            <figure class="manifest-example">
+              <figcaption id="manifest-example-title" class="code-label">Cargo.toml</figcaption>
+              <pre tabindex="0" role="group" aria-labelledby="manifest-example-title"><code>[package.metadata.phoxal.build]
+apt = ["libudev-dev", "pkg-config"]</code></pre>
+              <p class="manifest-rule">
+                <code>apt</code> is the only accepted key. Selectors must be at least two
+                characters, start with an ASCII letter or digit, and may use only
+                <code>A-Z a-z 0-9 . + : _ = -</code>; unknown keys and invalid selectors fail
+                the build.
+              </p>
+            </figure>
+
+            <ul class="contract-points">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>Selection is the boundary</h3>
+                  <p>Unselected services and tools cannot add packages or enter the build.</p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>Docker and Podman agree</h3>
+                  <p>Both engines receive the same sorted package union and deterministic image plan.</p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>The bundle stays native</h3>
+                  <p>The container compiles binaries; the archive contains only runtime assets and binaries.</p>
+                </div>
+              </li>
+              <li>
+                <span>04</span>
+                <div>
+                  <h3>Offline means no network</h3>
+                  <p>Cached manifests and the matching builder image are required before an offline build starts.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <p class="build-contract-note">
+            Native host builds continue to use the host toolchain as-is; PHOXAL does not install or
+            interpret <code>apt</code> declarations outside a container build.
+          </p>
+        </section>
+
         <section class="section urban" aria-labelledby="urban-title">
           <div class="section-heading">
             <p class="eyebrow">Operational target</p>
@@ -182,6 +247,7 @@
       <footer class="site-footer">
         <p>&copy; PHOXAL</p>
         <nav aria-label="Footer links">
+          <a href="#build-contract">Build contract</a>
           <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
           <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
           <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>

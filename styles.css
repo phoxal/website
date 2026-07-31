@@ -446,6 +446,116 @@ h2 {
   font-size: 15px;
 }
 
+.build-contract-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 1px;
+  background: rgba(183, 196, 207, 0.1);
+  border: 1px solid rgba(183, 196, 207, 0.1);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.manifest-example {
+  min-width: 0;
+  margin: 0;
+  padding: 32px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(127, 231, 227, 0.08), transparent 22rem),
+    linear-gradient(180deg, rgba(21, 29, 38, 0.84), rgba(14, 20, 27, 0.96));
+}
+
+.code-label {
+  margin: 0 0 48px;
+  color: var(--steel);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.manifest-example pre {
+  margin: 0;
+  padding: 22px;
+  overflow-x: auto;
+  color: #d7f7f5;
+  font-size: 14px;
+  line-height: 1.7;
+  background: rgba(6, 8, 11, 0.8);
+  border: 1px solid rgba(127, 231, 227, 0.15);
+  border-radius: 6px;
+}
+
+.manifest-example pre:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.manifest-example code,
+.build-contract-note code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.manifest-rule {
+  margin: 24px 0 0;
+  color: var(--muted-strong);
+  font-size: 14px;
+}
+
+.manifest-rule code {
+  color: var(--accent);
+}
+
+.contract-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: rgba(183, 196, 207, 0.1);
+}
+
+.contract-points li {
+  display: flex;
+  gap: 18px;
+  min-height: 176px;
+  padding: 28px;
+  background:
+    linear-gradient(180deg, rgba(21, 29, 38, 0.76), rgba(14, 20, 27, 0.94)),
+    var(--surface);
+}
+
+.contract-points span {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.contract-points h3 {
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.contract-points p {
+  margin: 12px 0 0;
+  color: var(--muted-strong);
+  font-size: 14px;
+}
+
+.build-contract-note {
+  max-width: 880px;
+  margin: 24px 0 0;
+  color: var(--muted-strong);
+}
+
+.build-contract-note code {
+  color: var(--accent);
+}
+
 .urban {
   padding-top: 78px;
 }
@@ -565,6 +675,10 @@ h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .build-contract-grid {
+    grid-template-columns: 1fr;
+  }
+
   .vision-grid {
     grid-template-columns: 1fr;
   }
@@ -661,6 +775,10 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .contract-points {
+    grid-template-columns: 1fr;
+  }
+
   .feature-card {
     min-height: 216px;
   }
@@ -724,6 +842,11 @@ h2 {
   }
 
   .feature-card {
+    padding: 24px;
+  }
+
+  .manifest-example,
+  .contract-points li {
     padding: 24px;
   }
 
