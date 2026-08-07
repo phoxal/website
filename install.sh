@@ -15,8 +15,13 @@
 #
 # Asset naming contract (shared with `phoxal self upgrade`):
 #   archive   phoxal-<version-no-v>-<target>.tar.gz
-#   binary    phoxal-<target>                (inside the archive)
+#   binaries  phoxal-<target> and phoxald-<target>   (inside the archive)
 #   checksum  <archive>.sha256               ("<hex>  <archive>")
+#
+# phoxal and phoxald are one product and install as an exact pair: the client
+# builds and attaches, the daemon supervises the execution, and each refuses to
+# work without a matching sibling. Both are verified present before either is
+# installed, so a failure never leaves a half-installed pair behind.
 
 set -eu
 
@@ -168,8 +173,12 @@ fi
 
 step "Installing"
 tar -xzf "$archive" -C "$tmpdir"
-binary="$tmpdir/phoxal-${target}"
-[ -f "$binary" ] || fail "release archive did not contain phoxal-${target}"
+client="$tmpdir/phoxal-${target}"
+daemon="$tmpdir/phoxald-${target}"
+# Both halves are checked before anything is written: an archive missing one of
+# them is a broken release, not a partial install to recover from.
+[ -f "$client" ] || fail "release archive did not contain phoxal-${target}"
+[ -f "$daemon" ] || fail "release archive did not contain phoxald-${target}"
 
 prefix=${PREFIX:-/usr/local}
 install_dir="$prefix/bin"
@@ -179,13 +188,20 @@ if ! { mkdir -p "$install_dir" 2>/dev/null && [ -w "$install_dir" ]; }; then
     info "$prefix/bin is not writable; using $install_dir"
 fi
 
-destination="$install_dir/phoxal"
-cp "$binary" "$destination" || fail "could not install to $destination"
-chmod 755 "$destination" || fail "could not chmod $destination"
-info "$destination"
+# The daemon goes first. A client without its daemon refuses to build or run
+# and names the problem, while a daemon without its client is inert - so if the
+# second copy fails, the first one left behind is the harmless half.
+for pair in "phoxald:$daemon" "phoxal:$client"; do
+    name=${pair%%:*}
+    source=${pair#*:}
+    destination="$install_dir/$name"
+    cp "$source" "$destination" || fail "could not install to $destination"
+    chmod 755 "$destination" || fail "could not chmod $destination"
+    info "$destination"
+done
 
 printf '%s\n' "" >&2
-printf '%s\n' "${green}${bold}✓${reset} ${bold}phoxal ${version} installed${reset}" >&2
+printf '%s\n' "${green}${bold}✓${reset} ${bold}phoxal and phoxald ${version} installed${reset}" >&2
 
 case ":$PATH:" in
     *":$install_dir:"*) ;;
