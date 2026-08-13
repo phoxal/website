@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Phoxal Framework is a Rust-first robotics framework for turning experience into deterministically evaluated, rollback-safe robot improvements."
+      content="Phoxal is an open-source, Rust-first framework for building reliable robots from simulation to deployment and safer iteration."
     >
     <meta name="theme-color" content="#06080B">
 
-    <meta property="og:title" content="PHOXAL | Phoxal Framework">
+    <meta property="og:title" content="PHOXAL | Build robots that leave the lab">
     <meta
       property="og:description"
-      content="Robots that improve from experience without giving up explicit authority, deterministic validation, simulation parity, observability, or rollback."
+      content="One coherent path from robot definition and simulation to deployment, observability, and safer iteration."
     >
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://phoxal.com/assets/logo_phoxal_vertical.png">
 
-    <title>PHOXAL | Phoxal Framework</title>
+    <title>PHOXAL | Build robots that leave the lab</title>
 
     <link rel="icon" href="assets/phoxal-mark-transparent.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
         </a>
 
         <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#north-star">North Star</a>
+          <a href="#why-phoxal">Why Phoxal</a>
           <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
           <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
           <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>
@@ -50,27 +50,27 @@
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-copy">
             <img class="hero-logo" src="assets/phoxal-logo-vertical-transparent.png" alt="PHOXAL Robotics Framework">
-            <p class="status-badge">Pre-alpha / Phoxal Framework v1</p>
-            <h1 id="hero-title">Robots should improve from experience—without giving up control.</h1>
+            <p class="status-badge">Open-source &middot; Pre-alpha</p>
+            <h1 id="hero-title">Build robots that can leave the lab.</h1>
             <p class="hero-description">
-              Phoxal Framework is an opinionated Rust-first robotics suite that carries a robot
-              from authored model through simulation, native execution, observability, and
-              rollback-safe deployment.
+              Phoxal is a Rust-first robotics framework designed to give teams one coherent path
+              from robot definition and simulation to deployment and operation—without rebuilding
+              the stack at every stage.
             </p>
             <p class="hero-note">
-              The v1 North Star is a trustworthy improvement loop: record typed experience,
-              evaluate candidates deterministically, and promote only immutable artifacts.
+              Model once. Test in simulation. Run on hardware. Understand every run. Ship the next
+              version with confidence.
             </p>
 
             <div class="hero-actions" role="group" aria-label="Primary links">
               <a class="button button-primary" href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">
-                <span>View framework</span>
+                <span>Explore the framework</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17 17 7M9 7h8v8" />
                 </svg>
               </a>
               <a class="button button-secondary" href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">
-                <span>Org profile</span>
+                <span>Follow on GitHub</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17 17 7M9 7h8v8" />
                 </svg>
@@ -80,26 +80,27 @@
 
           <aside class="hero-visual" aria-labelledby="visual-title">
             <div class="visual-copy">
-              <p class="eyebrow">North Star</p>
-              <h2 id="visual-title">Experience becomes evidence. Evidence becomes a validated next bundle.</h2>
+              <p class="eyebrow">One path, end to end</p>
+              <h2 id="visual-title">From first simulation to every field update.</h2>
               <p>
-                The loop records typed state and provenance, produces candidates outside the robot
-                runtime, evaluates them in deterministic scenarios, and promotes only artifacts
-                that are observable, compatible, and safe to roll back.
+                Phoxal keeps the robot model, communication, timing, and runtime conventions
+                consistent as a system moves from development to hardware. Less glue. Fewer hidden
+                differences. Faster diagnosis when the real world disagrees.
               </p>
             </div>
             <img src="assets/phoxal-system.svg" alt="">
           </aside>
         </section>
 
-        <section class="section platform" aria-labelledby="platform-title">
+        <section id="why-phoxal" class="section platform" aria-labelledby="platform-title">
           <div class="section-heading">
-            <p class="eyebrow">Architecture</p>
+            <p class="eyebrow">Why Phoxal</p>
             <div>
-              <h2 id="platform-title">One governed path from model to improvement.</h2>
+              <h2 id="platform-title">Infrastructure that stays out of the way.</h2>
               <p class="section-intro">
-                Phoxal Framework keeps authority and meaning explicit from authoring through execution.
-                Learning changes implementations, not the framework's runtime or wire model.
+                Robotics teams should spend their time on the robot, not on stitching together
+                incompatible tools. Phoxal turns the common infrastructure into one understandable
+                system.
               </p>
             </div>
           </div>
@@ -107,61 +108,59 @@
           <div class="feature-grid">
             <article class="feature-card">
               <span class="feature-index">01</span>
-              <h3>Authored robot model</h3>
-              <p>Robot manifests, structure files, and component definitions remain the source of truth.</p>
+              <h3>One source of truth</h3>
+              <p>Define the robot, its components, and its services once, then validate the complete system before launch.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">02</span>
-              <h3>Closed semantic API</h3>
-              <p>Robot processes communicate through a framework-owned typed vocabulary, not project-private protocols.</p>
+              <h3>Simulation-to-field continuity</h3>
+              <p>Use the same system boundaries and timing model in Webots and on real hardware.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">03</span>
-              <h3>Native process isolation</h3>
-              <p>Brains, services, drivers, simulators, and platform authorities remain isolated participants.</p>
+              <h3>Strong contracts</h3>
+              <p>Typed Rust interfaces catch integration mistakes early and make communication easier to inspect.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">04</span>
-              <h3>Simulation parity</h3>
-              <p>Webots and hardware execution use the same contracts, authorities, and logical-time semantics.</p>
+              <h3>Process-level reliability</h3>
+              <p>Native, isolated processes make lifecycle, ownership, and failures explicit without an orchestration layer.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">05</span>
-              <h3>Typed evidence</h3>
-              <p>Recordings carry the state, timing, provenance, and outcomes needed to inspect and reproduce a run.</p>
+              <h3>Evidence from every run</h3>
+              <p>Logs, telemetry, recordings, timing, and provenance are part of the system rather than an afterthought.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">06</span>
-              <h3>Validated bundles</h3>
-              <p>Promoted policies and models enter the ordinary immutable bundle, deployment, fallback, and rollback path.</p>
+              <h3>Safer iteration</h3>
+              <p>Inspectable, versioned runtime bundles create a deliberate path to deploy, recover, and roll back.</p>
             </article>
           </div>
         </section>
 
         <section id="north-star" class="section" aria-labelledby="north-star-title">
           <div class="section-heading">
-            <p class="eyebrow">Improvement loop</p>
+            <p class="eyebrow">Keep improving</p>
             <div>
-              <h2 id="north-star-title">Learning has explicit gates.</h2>
+              <h2 id="north-star-title">Turn every run into a better next release.</h2>
               <p class="section-intro">
-                The goal is not to put an LLM in charge of a robot. Phoxal Framework owns the lifecycle
-                boundaries that make improvement trustworthy; each application owns its mission,
-                feedback, evaluation meaning, models, and policies.
+                Bring your own models, policies, training stack, and evaluation logic. Phoxal is
+                being built to connect field experience to repeatable evaluation and deliberate
+                deployment—without letting production behavior change behind your back.
               </p>
             </div>
           </div>
 
           <div class="north-star-grid">
             <figure class="north-star-promise">
-              <figcaption class="promise-label">Phoxal Framework North Star</figcaption>
+              <figcaption class="promise-label">Open by design</figcaption>
               <blockquote>
-                Phoxal Framework should let robots improve from experience without giving up explicit
-                authority, deterministic validation, observable state, simulation parity,
-                repeatability, or rollback-safe deployment.
+                Use the tools and learning methods that fit your robot. Keep the path to production
+                explicit, testable, and reversible.
               </blockquote>
               <p>
-                A deployed process never silently replaces production weights or materially
-                rewrites its own policy.
+                Phoxal defines the lifecycle, not your intelligence stack.
               </p>
             </figure>
 
@@ -169,29 +168,29 @@
               <li>
                 <span>01</span>
                 <div>
-                  <h3>Experience</h3>
-                  <p>Execution produces typed recordings, provenance, outcomes, and feedback.</p>
+                  <h3>Capture</h3>
+                  <p>Record typed state, outcomes, feedback, timing, and provenance from every run.</p>
                 </div>
               </li>
               <li>
                 <span>02</span>
                 <div>
-                  <h3>Candidate</h3>
-                  <p>Training or derivation happens outside the robot runtime and produces an inspectable candidate.</p>
+                  <h3>Create</h3>
+                  <p>Train or derive candidates outside the robot using the tools that fit the problem.</p>
                 </div>
               </li>
               <li>
                 <span>03</span>
                 <div>
-                  <h3>Evaluation</h3>
-                  <p>Deterministic scenarios compare the candidate against explicit acceptance thresholds.</p>
+                  <h3>Prove</h3>
+                  <p>Compare each candidate in repeatable scenarios against the acceptance criteria that matter.</p>
                 </div>
               </li>
               <li>
                 <span>04</span>
                 <div>
-                  <h3>Promotion</h3>
-                  <p>Only a passing immutable artifact enters the next validated bundle, with fallback and rollback evidence.</p>
+                  <h3>Ship</h3>
+                  <p>Promote a passing artifact into a versioned bundle with a known fallback and rollback path.</p>
                 </div>
               </li>
             </ul>
@@ -200,13 +199,13 @@
 
         <section class="section minimum-framework" aria-labelledby="minimum-framework-title">
           <div class="section-heading">
-            <p class="eyebrow">V1 usability floor</p>
+            <p class="eyebrow">Developer experience</p>
             <div>
-              <h2 id="minimum-framework-title">First, make the whole path boringly usable.</h2>
+              <h2 id="minimum-framework-title">From prototype to production, without rebuilding your stack.</h2>
               <p class="section-intro">
-                Minimum Working Framework means a developer can move from authored robot to
+                A dependable robot framework should let developers move from definition to
                 simulation and hardware, diagnose failures, and recover without editing framework
-                internals. Reference robots qualify that generic path; they do not define the framework.
+                internals or inventing custom glue.
               </p>
             </div>
           </div>
@@ -214,28 +213,28 @@
           <ul class="vision-grid">
             <li>
               <span>01</span>
-              <p>Author → validate → build an inspectable runtime bundle</p>
+              <p>Build the complete robot from one validated project</p>
             </li>
             <li>
               <span>02</span>
-              <p>Simulate → execute → record the same semantic graph</p>
+              <p>Run the same system model in simulation and on hardware</p>
             </li>
             <li>
               <span>03</span>
-              <p>Deploy → attach → inspect → stop, restart, and roll back</p>
+              <p>Deploy, observe, stop, restart, and roll back with confidence</p>
             </li>
           </ul>
         </section>
 
         <section class="section status" aria-labelledby="status-title">
           <div>
-            <p class="eyebrow">Status</p>
-            <h2 id="status-title">Pre-alpha. Expect loud breaks.</h2>
+            <p class="eyebrow">Built in the open</p>
+            <h2 id="status-title">A clear path to v1.</h2>
           </div>
           <p>
-            PHOXAL is pre-1.0 and the public repositories are moving quickly. It is ready to inspect,
-            discuss, and use as a design direction; it is not yet a stable dependency. Breaking API
-            and runtime changes are intentional and should fail loudly instead of silently drifting.
+            Phoxal is pre-alpha: the public repositories move quickly and interfaces can change.
+            The architecture and implementation are open today for robotics engineers who want to
+            explore the direction, challenge it, and follow the path toward a stable v1.
           </p>
         </section>
       </main>
@@ -243,7 +242,7 @@
       <footer class="site-footer">
         <p>&copy; PHOXAL</p>
         <nav aria-label="Footer links">
-          <a href="#north-star">North Star</a>
+          <a href="#why-phoxal">Why Phoxal</a>
           <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
           <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
           <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>
