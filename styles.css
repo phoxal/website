@@ -401,7 +401,7 @@ h2 {
 
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   background: rgba(183, 196, 207, 0.1);
   border: 1px solid rgba(183, 196, 207, 0.1);
@@ -446,7 +446,7 @@ h2 {
   font-size: 15px;
 }
 
-.build-contract-grid {
+.north-star-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   gap: 1px;
@@ -456,7 +456,7 @@ h2 {
   overflow: hidden;
 }
 
-.manifest-example {
+.north-star-promise {
   min-width: 0;
   margin: 0;
   padding: 32px;
@@ -465,7 +465,7 @@ h2 {
     linear-gradient(180deg, rgba(21, 29, 38, 0.84), rgba(14, 20, 27, 0.96));
 }
 
-.code-label {
+.promise-label {
   margin: 0 0 48px;
   color: var(--steel);
   font-family: var(--font-heading);
@@ -475,36 +475,19 @@ h2 {
   text-transform: uppercase;
 }
 
-.manifest-example pre {
+.north-star-promise blockquote {
   margin: 0;
-  padding: 22px;
-  overflow-x: auto;
-  color: #d7f7f5;
-  font-size: 14px;
-  line-height: 1.7;
-  background: rgba(6, 8, 11, 0.8);
-  border: 1px solid rgba(127, 231, 227, 0.15);
-  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
-.manifest-example pre:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.manifest-example code,
-.build-contract-note code {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-}
-
-.manifest-rule {
-  margin: 24px 0 0;
+.north-star-promise p {
+  margin: 28px 0 0;
   color: var(--muted-strong);
-  font-size: 14px;
-}
-
-.manifest-rule code {
-  color: var(--accent);
+  font-size: 15px;
 }
 
 .contract-points {
@@ -546,17 +529,7 @@ h2 {
   font-size: 14px;
 }
 
-.build-contract-note {
-  max-width: 880px;
-  margin: 24px 0 0;
-  color: var(--muted-strong);
-}
-
-.build-contract-note code {
-  color: var(--accent);
-}
-
-.urban {
+.minimum-framework {
   padding-top: 78px;
 }
 
@@ -675,7 +648,7 @@ h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .build-contract-grid {
+  .north-star-grid {
     grid-template-columns: 1fr;
   }
 
@@ -845,7 +818,7 @@ h2 {
     padding: 24px;
   }
 
-  .manifest-example,
+  .north-star-promise,
   .contract-points li {
     padding: 24px;
   }
