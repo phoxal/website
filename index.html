@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="PHOXAL is a pre-alpha Rust-first robotics framework for manifest-driven robot validation, Webots simulation, typed Zenoh runtimes, deployment, and operator observability."
+      content="Phoxal Framework is a Rust-first robotics framework for turning experience into deterministically evaluated, rollback-safe robot improvements."
     >
     <meta name="theme-color" content="#06080B">
 
-    <meta property="og:title" content="PHOXAL | Pre-alpha Rust Robotics Framework">
+    <meta property="og:title" content="PHOXAL | Phoxal Framework">
     <meta
       property="og:description"
-      content="Manifest-driven robotics infrastructure for simulation, deployment, and operator-facing observability."
+      content="Robots that improve from experience without giving up explicit authority, deterministic validation, simulation parity, observability, or rollback."
     >
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://phoxal.com/assets/logo_phoxal_vertical.png">
 
-    <title>PHOXAL | Pre-alpha Rust Robotics Framework</title>
+    <title>PHOXAL | Phoxal Framework</title>
 
     <link rel="icon" href="assets/phoxal-mark-transparent.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
         </a>
 
         <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#build-contract">Build contract</a>
+          <a href="#north-star">North Star</a>
           <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
           <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
           <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>
@@ -50,16 +50,16 @@
         <section class="hero" aria-labelledby="hero-title">
           <div class="hero-copy">
             <img class="hero-logo" src="assets/phoxal-logo-vertical-transparent.png" alt="PHOXAL Robotics Framework">
-            <p class="status-badge">Pre-alpha / active rewrite</p>
-            <h1 id="hero-title">Manifest-driven robotics infrastructure for robots that have to leave simulation.</h1>
+            <p class="status-badge">Pre-alpha / Phoxal Framework v1</p>
+            <h1 id="hero-title">Robots should improve from experience—without giving up control.</h1>
             <p class="hero-description">
-              PHOXAL is a Rust-first robotics suite for authored robot and component models,
-              typed Zenoh communication, Webots simulation, isolated runtime and driver processes,
-              deployment tooling, and operator-facing observability.
+              Phoxal Framework is an opinionated Rust-first robotics suite that carries a robot
+              from authored model through simulation, native execution, observability, and
+              rollback-safe deployment.
             </p>
             <p class="hero-note">
-              It is pre-alpha. APIs, catalogs, and runtime contracts are expected to break loudly
-              while the framework converges.
+              The v1 North Star is a trustworthy improvement loop: record typed experience,
+              evaluate candidates deterministically, and promote only immutable artifacts.
             </p>
 
             <div class="hero-actions" role="group" aria-label="Primary links">
@@ -80,11 +80,12 @@
 
           <aside class="hero-visual" aria-labelledby="visual-title">
             <div class="visual-copy">
-              <p class="eyebrow">System promise</p>
-              <h2 id="visual-title">One manifest, one typed bus, one operational path.</h2>
+              <p class="eyebrow">North Star</p>
+              <h2 id="visual-title">Experience becomes evidence. Evidence becomes a validated next bundle.</h2>
               <p>
-                Start from robot.yaml and component manifests; validate the graph; simulate with
-                logical time; then keep the same service boundaries when moving toward hardware.
+                The loop records typed state and provenance, produces candidates outside the robot
+                runtime, evaluates them in deterministic scenarios, and promotes only artifacts
+                that are observable, compatible, and safe to roll back.
               </p>
             </div>
             <img src="assets/phoxal-system.svg" alt="">
@@ -95,10 +96,10 @@
           <div class="section-heading">
             <p class="eyebrow">Architecture</p>
             <div>
-              <h2 id="platform-title">A coherent path from model to robot.</h2>
+              <h2 id="platform-title">One governed path from model to improvement.</h2>
               <p class="section-intro">
-                The suite is opinionated by design. It avoids hidden runtime discovery and favors
-                explicit contracts the CLI can validate before launch.
+                Phoxal Framework keeps authority and meaning explicit from authoring through execution.
+                Learning changes implementations, not the framework's runtime or wire model.
               </p>
             </div>
           </div>
@@ -111,55 +112,56 @@
             </article>
             <article class="feature-card">
               <span class="feature-index">02</span>
-              <h3>Generated runtime graph</h3>
-              <p>The CLI resolves artifacts, validates compatibility, and materializes the launch plan.</p>
+              <h3>Closed semantic API</h3>
+              <p>Robot processes communicate through a framework-owned typed vocabulary, not project-private protocols.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">03</span>
-              <h3>Typed Zenoh contracts</h3>
-              <p>Zenoh is the transport, but every topic, query, and command is bound to a Rust contract.</p>
+              <h3>Native process isolation</h3>
+              <p>Brains, services, drivers, simulators, and platform authorities remain isolated participants.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">04</span>
-              <h3>Isolated participants</h3>
-              <p>Platform services, hardware drivers, user services, and tools run as separate processes.</p>
+              <h3>Simulation parity</h3>
+              <p>Webots and hardware execution use the same contracts, authorities, and logical-time semantics.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">05</span>
-              <h3>Webots simulation</h3>
-              <p>Simulation uses framework-owned contracts and logical time instead of a second mental model.</p>
+              <h3>Typed evidence</h3>
+              <p>Recordings carry the state, timing, provenance, and outcomes needed to inspect and reproduce a run.</p>
             </article>
             <article class="feature-card">
               <span class="feature-index">06</span>
-              <h3>Operator observability</h3>
-              <p>Telemetry, logs, visualization, and diagnostics are treated as part of the runtime surface.</p>
+              <h3>Validated bundles</h3>
+              <p>Promoted policies and models enter the ordinary immutable bundle, deployment, fallback, and rollback path.</p>
             </article>
           </div>
         </section>
 
-        <section id="build-contract" class="section" aria-labelledby="build-contract-title">
+        <section id="north-star" class="section" aria-labelledby="north-star-title">
           <div class="section-heading">
-            <p class="eyebrow">Build contract</p>
+            <p class="eyebrow">Improvement loop</p>
             <div>
-              <h2 id="build-contract-title">Native dependencies live with the runtime that needs them.</h2>
+              <h2 id="north-star-title">Learning has explicit gates.</h2>
               <p class="section-intro">
-                A runnable Cargo package declares the Debian packages needed to compile it. PHOXAL
-                reads only the manifests selected for the robot and builds one shared, deterministic
-                container image for that exact requirement set.
+                The goal is not to put an LLM in charge of a robot. Phoxal Framework owns the lifecycle
+                boundaries that make improvement trustworthy; each application owns its mission,
+                feedback, evaluation meaning, models, and policies.
               </p>
             </div>
           </div>
 
-          <div class="build-contract-grid">
-            <figure class="manifest-example">
-              <figcaption id="manifest-example-title" class="code-label">Cargo.toml</figcaption>
-              <pre tabindex="0" role="group" aria-labelledby="manifest-example-title"><code>[package.metadata.phoxal.build]
-apt = ["libudev-dev", "pkg-config"]</code></pre>
-              <p class="manifest-rule">
-                <code>apt</code> is the only accepted key. Selectors must be at least two
-                characters, start with an ASCII letter or digit, and may use only
-                <code>A-Z a-z 0-9 . + : _ = -</code>; unknown keys and invalid selectors fail
-                the build.
+          <div class="north-star-grid">
+            <figure class="north-star-promise">
+              <figcaption class="promise-label">Phoxal Framework North Star</figcaption>
+              <blockquote>
+                Phoxal Framework should let robots improve from experience without giving up explicit
+                authority, deterministic validation, observable state, simulation parity,
+                repeatability, or rollback-safe deployment.
+              </blockquote>
+              <p>
+                A deployed process never silently replaces production weights or materially
+                rewrites its own policy.
               </p>
             </figure>
 
@@ -167,49 +169,44 @@ apt = ["libudev-dev", "pkg-config"]</code></pre>
               <li>
                 <span>01</span>
                 <div>
-                  <h3>Selection is the boundary</h3>
-                  <p>Unselected services and tools cannot add packages or enter the build.</p>
+                  <h3>Experience</h3>
+                  <p>Execution produces typed recordings, provenance, outcomes, and feedback.</p>
                 </div>
               </li>
               <li>
                 <span>02</span>
                 <div>
-                  <h3>Docker and Podman agree</h3>
-                  <p>Both engines receive the same sorted package union and deterministic image plan.</p>
+                  <h3>Candidate</h3>
+                  <p>Training or derivation happens outside the robot runtime and produces an inspectable candidate.</p>
                 </div>
               </li>
               <li>
                 <span>03</span>
                 <div>
-                  <h3>The bundle stays native</h3>
-                  <p>The container compiles binaries; the archive contains only runtime assets and binaries.</p>
+                  <h3>Evaluation</h3>
+                  <p>Deterministic scenarios compare the candidate against explicit acceptance thresholds.</p>
                 </div>
               </li>
               <li>
                 <span>04</span>
                 <div>
-                  <h3>Offline means no network</h3>
-                  <p>Cached manifests and the matching builder image are required before an offline build starts.</p>
+                  <h3>Promotion</h3>
+                  <p>Only a passing immutable artifact enters the next validated bundle, with fallback and rollback evidence.</p>
                 </div>
               </li>
             </ul>
           </div>
-
-          <p class="build-contract-note">
-            Native host builds continue to use the host toolchain as-is; PHOXAL does not install or
-            interpret <code>apt</code> declarations outside a container build.
-          </p>
         </section>
 
-        <section class="section urban" aria-labelledby="urban-title">
+        <section class="section minimum-framework" aria-labelledby="minimum-framework-title">
           <div class="section-heading">
-            <p class="eyebrow">Operational target</p>
+            <p class="eyebrow">V1 usability floor</p>
             <div>
-              <h2 id="urban-title">The first customer is the robot we are building.</h2>
+              <h2 id="minimum-framework-title">First, make the whole path boringly usable.</h2>
               <p class="section-intro">
-                PHOXAL is general enough for mobile robots, but its forcing function is sidewalk
-                and street-maintenance autonomy: durable systems that can be modeled, validated,
-                deployed, observed, and fixed without hidden state.
+                Minimum Working Framework means a developer can move from authored robot to
+                simulation and hardware, diagnose failures, and recover without editing framework
+                internals. Reference robots qualify that generic path; they do not define the framework.
               </p>
             </div>
           </div>
@@ -217,15 +214,15 @@ apt = ["libudev-dev", "pkg-config"]</code></pre>
           <ul class="vision-grid">
             <li>
               <span>01</span>
-              <p>Sidewalk and street-maintenance robots</p>
+              <p>Author → validate → build an inspectable runtime bundle</p>
             </li>
             <li>
               <span>02</span>
-              <p>Simulation-to-hardware parity</p>
+              <p>Simulate → execute → record the same semantic graph</p>
             </li>
             <li>
               <span>03</span>
-              <p>Fleet and operator surfaces without custom glue</p>
+              <p>Deploy → attach → inspect → stop, restart, and roll back</p>
             </li>
           </ul>
         </section>
@@ -236,10 +233,9 @@ apt = ["libudev-dev", "pkg-config"]</code></pre>
             <h2 id="status-title">Pre-alpha. Expect loud breaks.</h2>
           </div>
           <p>
-            The architecture is in active rewrite and the public repositories are moving quickly.
-            PHOXAL is ready to inspect, discuss, and use as a design direction; it is not yet a
-            stable dependency. Breaking API, catalog, and runtime changes are intentional and
-            should fail loudly instead of silently drifting.
+            PHOXAL is pre-1.0 and the public repositories are moving quickly. It is ready to inspect,
+            discuss, and use as a design direction; it is not yet a stable dependency. Breaking API
+            and runtime changes are intentional and should fail loudly instead of silently drifting.
           </p>
         </section>
       </main>
@@ -247,7 +243,7 @@ apt = ["libudev-dev", "pkg-config"]</code></pre>
       <footer class="site-footer">
         <p>&copy; PHOXAL</p>
         <nav aria-label="Footer links">
-          <a href="#build-contract">Build contract</a>
+          <a href="#north-star">North Star</a>
           <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
           <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
           <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>
