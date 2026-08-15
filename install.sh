@@ -265,8 +265,9 @@ payload_dir="$tmpdir/payload"
 mkdir "$payload_dir" || fail "could not create the extraction directory"
 tar -xzf "$archive" -C "$payload_dir" || fail "could not extract ${binary_name}"
 client="$payload_dir/$binary_name"
-[ -f "$client" ] && [ ! -L "$client" ] ||
+if [ ! -f "$client" ] || [ -L "$client" ]; then
     fail "release archive entry ${binary_name} is not a regular file"
+fi
 
 if [ -L "$requested_install_dir" ]; then
     fail "refusing symlink install directory '$requested_install_dir'; set PREFIX to the resolved directory instead"
@@ -310,8 +311,9 @@ elif [ -e "$destination" ] && [ ! -f "$destination" ]; then
 fi
 mv -f "$install_candidate" "$destination" || fail "could not install to $destination"
 install_candidate=
-[ -f "$destination" ] && [ ! -L "$destination" ] && [ -x "$destination" ] ||
+if [ ! -f "$destination" ] || [ -L "$destination" ] || [ ! -x "$destination" ]; then
     fail "installed phoxal is not an executable regular file"
+fi
 cmp -s "$client" "$destination" || fail "installed phoxal failed byte verification"
 info "$destination"
 

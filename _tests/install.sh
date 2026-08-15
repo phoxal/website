@@ -132,7 +132,9 @@ must_fail() (
 )
 
 assert_no_file_or_link() {
-    [ ! -e "$1" ] && [ ! -L "$1" ] || fail_test "$1 unexpectedly exists"
+    if [ -e "$1" ] || [ -L "$1" ]; then
+        fail_test "$1 unexpectedly exists"
+    fi
 }
 
 # A valid release installs the exact bytes and removes the regular legacy

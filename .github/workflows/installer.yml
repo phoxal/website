@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Check shell syntax
         run: sh -n install.sh _tests/install.sh _tests/fixtures/curl _tests/fixtures/uname
@@ -47,7 +47,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Test portable installer
         run: sh _tests/install.sh
