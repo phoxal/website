@@ -15,7 +15,7 @@
 #
 # Asset naming contract (shared with `phoxal self upgrade`):
 #   archive   phoxal-<version-no-v>-<target>.tar.gz
-#   binary    phoxal-<target>                 (the archive's only entry)
+#   binary    phoxal-<target>                 (inside the archive)
 #   checksum  <archive>.sha256               ("<hex>  <archive>")
 
 set -eu
@@ -85,68 +85,6 @@ sha256_of() {
     fi
 }
 
-# Normalize configured roots without resolving through a symlink or requiring
-# the path to exist. Installation accepts no relative or unresolved segments.
-normalize_root() {
-    root_value=$1
-    root_name=$2
-    [ -n "$root_value" ] || fail "$root_name must not be empty"
-    case "$root_value" in
-        /*) ;;
-        *) fail "$root_name must be an absolute path (got '$root_value')" ;;
-    esac
-    root_value=$(printf '%s\n' "$root_value" | sed 's://*:/:g')
-    while [ "$root_value" != "/" ] && [ "${root_value%/}" != "$root_value" ]; do
-        root_value=${root_value%/}
-    done
-    case "$root_value" in
-        *//* | */./* | */../* | */. | */..)
-            fail "$root_name contains unresolved path segments ('$root_value')"
-            ;;
-    esac
-    printf '%s\n' "$root_value"
-}
-
-# Installation and legacy cleanup are confined to one absolute bin directory.
-validate_install_dir() {
-    case "$1" in
-        /*/bin) ;;
-        *) fail "refusing unsafe install directory '$1' (expected an absolute */bin path)" ;;
-    esac
-}
-
-refuse_cross_install_shadowing() {
-    other_dir=$1
-    other_prefix=${other_dir%/bin}
-    for other_name in phoxal phoxald; do
-        other_path="$other_dir/$other_name"
-        if [ -e "$other_path" ] || [ -L "$other_path" ]; then
-            fail "$other_path would shadow this installation; remove it or rerun with PREFIX set to $other_prefix"
-        fi
-    done
-}
-
-prepare_fallback_dir() {
-    fallback_dir=$1
-    if [ -L "$fallback_dir" ]; then
-        fail "refusing symlink install directory '$fallback_dir'; set PREFIX to the resolved directory instead"
-    fi
-    if [ -e "$fallback_dir" ] && [ ! -d "$fallback_dir" ]; then
-        fail "install directory '$fallback_dir' is not a directory"
-    fi
-    mkdir -p "$fallback_dir" || fail "could not create $fallback_dir"
-    [ -w "$fallback_dir" ] || fail "install directory '$fallback_dir' is not writable"
-}
-
-select_fallback_install_dir() {
-    [ -n "${fallback_install_dir:-}" ] ||
-        fail "HOME must be set to an absolute path when PREFIX is not writable"
-    refuse_cross_install_shadowing "$requested_install_dir"
-    prepare_fallback_dir "$fallback_install_dir"
-    install_dir=$fallback_install_dir
-    info "$requested_install_dir is not writable; using $install_dir"
-}
-
 # --- detect platform --------------------------------------------------------
 
 detect_target() {
@@ -205,26 +143,8 @@ version_without_v=${version#v}
 asset="phoxal-${version_without_v}-${target}.tar.gz"
 url="${RELEASES}/download/${version}/${asset}"
 
-prefix=$(normalize_root "${PREFIX:-/usr/local}" PREFIX)
-requested_install_dir="${prefix%/}/bin"
-validate_install_dir "$requested_install_dir"
-fallback_install_dir=
-if [ -n "${HOME:-}" ]; then
-    home=$(normalize_root "$HOME" HOME)
-    fallback_install_dir="${home%/}/.local/bin"
-    validate_install_dir "$fallback_install_dir"
-fi
-
 tmpdir=$(mktemp -d "${TMPDIR:-/tmp}/phoxal-cli.XXXXXX")
-install_candidate=
-cleanup() {
-    if [ -n "${install_candidate:-}" ]; then
-        rm -f "$install_candidate"
-    fi
-    rm -rf "$tmpdir"
-}
-trap cleanup 0
-trap 'exit 1' 1 2 15
+trap 'rm -rf "$tmpdir"' EXIT HUP INT TERM
 
 step "Downloading ${asset}"
 archive="$tmpdir/$asset"
@@ -247,85 +167,22 @@ else
 fi
 
 step "Installing"
-binary_name="phoxal-${target}"
-archive_entries=$(tar -tzf "$archive") || fail "could not read release archive ${asset}"
-case "$archive_entries" in
-    "$binary_name") archive_member=$binary_name ;;
-    "./$binary_name") archive_member="./$binary_name" ;;
-    *) fail "release archive must contain exactly ${binary_name} at its root" ;;
-esac
-archive_description=$(tar -tvzf "$archive") || fail "could not inspect release archive ${asset}"
-# The exact-one-member gate above makes this a check of the whole archive,
-# rather than merely a check that its first listed member is regular.
-case "$archive_description" in
-    -*) ;;
-    *) fail "release archive entry ${archive_member} is not a regular file" ;;
-esac
-payload_dir="$tmpdir/payload"
-mkdir "$payload_dir" || fail "could not create the extraction directory"
-tar -xzf "$archive" -C "$payload_dir" || fail "could not extract ${binary_name}"
-client="$payload_dir/$binary_name"
-if [ ! -f "$client" ] || [ -L "$client" ]; then
-    fail "release archive entry ${binary_name} is not a regular file"
-fi
+tar -xzf "$archive" -C "$tmpdir"
+client="$tmpdir/phoxal-${target}"
+[ -f "$client" ] || fail "release archive did not contain phoxal-${target}"
 
-if [ -L "$requested_install_dir" ]; then
-    fail "refusing symlink install directory '$requested_install_dir'; set PREFIX to the resolved directory instead"
-elif [ -d "$requested_install_dir" ]; then
-    if [ -w "$requested_install_dir" ]; then
-        install_dir=$requested_install_dir
-    else
-        select_fallback_install_dir
-    fi
-elif [ -e "$requested_install_dir" ]; then
-    fail "install directory '$requested_install_dir' is not a directory; remove it or choose another PREFIX"
-elif mkdir -p "$requested_install_dir" 2>/dev/null && [ -w "$requested_install_dir" ]; then
-    install_dir=$requested_install_dir
-else
-    select_fallback_install_dir
-fi
-
-if [ -n "$fallback_install_dir" ] && [ "$install_dir" != "$fallback_install_dir" ]; then
-    refuse_cross_install_shadowing "$fallback_install_dir"
+prefix=${PREFIX:-/usr/local}
+install_dir="$prefix/bin"
+if ! { mkdir -p "$install_dir" 2>/dev/null && [ -w "$install_dir" ]; }; then
+    install_dir="$HOME/.local/bin"
+    mkdir -p "$install_dir" || fail "could not create $install_dir"
+    info "$prefix/bin is not writable; using $install_dir"
 fi
 
 destination="$install_dir/phoxal"
-if [ -e "$destination" ] && [ ! -f "$destination" ] && [ ! -L "$destination" ]; then
-    fail "refusing to replace non-file destination $destination; remove it or choose another PREFIX"
-fi
-
-install_candidate=$(mktemp "$install_dir/.phoxal-install.XXXXXX") ||
-    fail "could not create an installation candidate in $install_dir"
-cp "$client" "$install_candidate" || fail "could not stage phoxal in $install_dir"
-chmod 755 "$install_candidate" || fail "could not chmod the installation candidate"
-cmp -s "$client" "$install_candidate" || fail "staged phoxal failed byte verification"
-
-# Removing a destination symlink first prevents `mv` implementations from
-# treating a symlink-to-directory as the target directory. Regular-file
-# upgrades use one atomic same-directory rename; only this foreign-symlink
-# replacement has a short unlink-before-rename window.
-if [ -L "$destination" ]; then
-    rm -f "$destination" || fail "could not replace destination symlink $destination"
-elif [ -e "$destination" ] && [ ! -f "$destination" ]; then
-    fail "refusing to replace non-file destination $destination"
-fi
-mv -f "$install_candidate" "$destination" || fail "could not install to $destination"
-install_candidate=
-if [ ! -f "$destination" ] || [ -L "$destination" ] || [ ! -x "$destination" ]; then
-    fail "installed phoxal is not an executable regular file"
-fi
-cmp -s "$client" "$destination" || fail "installed phoxal failed byte verification"
+cp "$client" "$destination" || fail "could not install to $destination"
+chmod 755 "$destination" || fail "could not chmod $destination"
 info "$destination"
-
-# The old installer owned this exact sibling. Remove it outright so upgrading
-# cannot leave the retired daemon executable on PATH.
-legacy_daemon="$install_dir/phoxald"
-if [ -L "$legacy_daemon" ] || [ -f "$legacy_daemon" ]; then
-    rm -f "$legacy_daemon" || fail "could not remove legacy $legacy_daemon"
-    info "removed legacy $legacy_daemon"
-elif [ -e "$legacy_daemon" ]; then
-    warn "$legacy_daemon is not a file; preserving it"
-fi
 
 printf '%s\n' "" >&2
 printf '%s\n' "${green}${bold}✓${reset} ${bold}phoxal ${version} installed${reset}" >&2
