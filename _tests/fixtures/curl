@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -eu
+
+url=
+destination=
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        -o)
+            destination=$2
+            shift 2
+            ;;
+        http://* | https://*)
+            url=$1
+            shift
+            ;;
+        *) shift ;;
+    esac
+done
+
+cp "$FIXTURE_ROOT/${url##*/}" "$destination"
