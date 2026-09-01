@@ -701,8 +701,14 @@ h3 {
 }
 
 .invitation h2 {
-  max-width: 17ch;
+  max-width: none;
   margin-inline: auto;
+  font-size: clamp(1.3rem, 6.5vw, 4.8rem);
+}
+
+.invitation h2 span {
+  display: block;
+  white-space: nowrap;
 }
 
 .actions--centered {
@@ -752,11 +758,16 @@ h3 {
     gap: 2.5rem;
   }
 
-  .hero__definition,
   .purpose h2,
   .north-star__heading h2,
   .development__inner h2 {
     max-width: 17ch;
+  }
+
+  .hero__definition {
+    max-width: 40ch;
+    margin-inline: auto;
+    text-align: center;
   }
 
   .prose-stack,
