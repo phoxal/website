@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Phoxal is an open-source robotics framework for explicit validation, observable execution, repeatable evaluation, and controlled improvement."
+      content="Phoxal is an open-source robotics framework for turning robot experience into observable, repeatable, and deliberately evaluated improvements."
     >
     <meta name="theme-color" content="#f4f7f5">
 
     <link rel="canonical" href="https://phoxal.com/">
 
-    <meta property="og:title" content="Phoxal Framework | Robots that improve without losing control">
+    <meta property="og:title" content="Phoxal Framework | Build robots that improve without giving up control">
     <meta
       property="og:description"
-      content="An open-source robotics framework for observable, repeatable, and deliberately evaluated improvement."
+      content="Phoxal is an open-source robotics framework for turning robot experience into observable, repeatable, and deliberately evaluated improvements."
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://phoxal.com/">
     <meta property="og:site_name" content="Phoxal Framework">
     <meta property="og:image" content="https://phoxal.com/assets/phoxal-social-card.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta
@@ -28,10 +29,10 @@
     >
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Phoxal Framework | Robots that improve without losing control">
+    <meta name="twitter:title" content="Phoxal Framework | Build robots that improve without giving up control">
     <meta
       name="twitter:description"
-      content="An open-source robotics framework for observable, repeatable, and deliberately evaluated improvement."
+      content="Phoxal is an open-source robotics framework for turning robot experience into observable, repeatable, and deliberately evaluated improvements."
     >
     <meta name="twitter:image" content="https://phoxal.com/assets/phoxal-social-card.png">
     <meta
@@ -39,10 +40,12 @@
       content="Phoxal Framework: Build robots that improve without giving up control."
     >
 
-    <title>Phoxal Framework | Robots that improve without losing control</title>
+    <title>Phoxal | Robots that improve without giving up control</title>
 
     <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
-    <link rel="stylesheet" href="styles.css?v=71ebe822">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="preload" href="assets/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -69,7 +72,7 @@
       </div>
     </header>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
       <section class="hero" aria-labelledby="hero-title">
         <div class="content-width hero__inner">
           <p class="status-label">Open source <span aria-hidden="true">·</span> Pre-1.0 <span aria-hidden="true">·</span> Under active development</p>
@@ -96,34 +99,35 @@
               </div>
             </div>
           </div>
-
-          <p class="hero__principle">
-            Control is not the opposite of improvement. It is what makes improvement trustworthy.
-          </p>
         </div>
       </section>
 
       <section class="purpose section" aria-labelledby="purpose-title">
-        <div class="content-width editorial-grid">
-          <div>
-            <p class="eyebrow">The premise</p>
-            <h2 id="purpose-title">A robot should not become harder to understand as it becomes more capable.</h2>
-          </div>
-          <div class="prose-stack">
-            <p>
-              Robotics development can break into disconnected stages. A system is designed one
-              way, simulated another way, deployed through another set of tools, and diagnosed from
-              incomplete evidence after something goes wrong.
-            </p>
-            <p>
-              Learning can make that problem worse. A new model or policy may appear better, but
-              without repeatable evaluation, explicit promotion, and rollback, improvement becomes
-              hidden change.
-            </p>
-            <p>
-              Phoxal is being designed around a different premise: the path from an authored robot
-              to its next evaluated release should remain one coherent, inspectable lifecycle.
-            </p>
+        <div class="content-width">
+          <p class="purpose__principle">
+            Control is not the opposite of improvement. It is what makes improvement trustworthy.
+          </p>
+          <div class="editorial-grid">
+            <div>
+              <p class="eyebrow">The premise</p>
+              <h2 id="purpose-title">A robot should not become harder to understand as it becomes more capable.</h2>
+            </div>
+            <div class="prose-stack">
+              <p>
+                Robotics development can break into disconnected stages. A system is designed one
+                way, simulated another way, deployed through another set of tools, and diagnosed from
+                incomplete evidence after something goes wrong.
+              </p>
+              <p>
+                Learning can make that problem worse. A new model or policy may appear better, but
+                without repeatable evaluation, explicit promotion, and rollback, improvement becomes
+                hidden change.
+              </p>
+              <p>
+                Phoxal is being designed around a different premise: the path from an authored robot
+                to its next evaluated release should remain one coherent, inspectable lifecycle.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -133,7 +137,7 @@
           <div class="north-star__heading">
             <div>
               <p class="eyebrow eyebrow--dark">The North Star</p>
-              <h2 id="north-star-title">Every execution should make the next release better.</h2>
+              <h2 id="north-star-title">Every execution should produce evidence for a better next release.</h2>
             </div>
             <p>
               Improvement is a controlled loop. Each stage leaves enough evidence for the next
@@ -165,7 +169,7 @@
             <li>
               <span class="lifecycle__index" aria-hidden="true">05</span>
               <h3>Observe</h3>
-              <p>Capture what happened, when it happened, which version produced it, and who was responsible.</p>
+              <p>Capture what happened, when it happened, which version produced it, and which part of the system owned the outcome.</p>
             </li>
             <li>
               <span class="lifecycle__index" aria-hidden="true">06</span>
@@ -175,19 +179,27 @@
             <li>
               <span class="lifecycle__index" aria-hidden="true">07</span>
               <h3>Evaluate</h3>
-              <p>Test the candidate in deterministic scenarios against explicit acceptance criteria.</p>
+              <p>Test the candidate in deterministic scenarios against explicit acceptance criteria. Reject it when the evidence does not meet them.</p>
             </li>
-            <li>
+            <li class="lifecycle__stage--promote">
               <span class="lifecycle__index" aria-hidden="true">08</span>
+              <span class="lifecycle__gate">Promotion boundary</span>
               <h3>Promote</h3>
-              <p>Accept a proven candidate as the next version, with evidence and a reversible deployment path.</p>
-            </li>
-            <li>
-              <span class="lifecycle__index" aria-hidden="true">09</span>
-              <h3>Repeat</h3>
-              <p>Execute the next release, gather new experience, and continue improving.</p>
+              <p>Accept a proven candidate as the next release, with evidence and a reversible deployment path.</p>
             </li>
           </ol>
+
+          <div class="lifecycle-return">
+            <p class="lifecycle-return__path">
+              <span>Promote</span>
+              <span class="lifecycle-return__arrow lifecycle-return__arrow--desktop" aria-hidden="true">→</span>
+              <span class="lifecycle-return__arrow lifecycle-return__arrow--mobile" aria-hidden="true">↓</span>
+              <strong>Execute the next release</strong>
+            </p>
+            <p>
+              A promoted candidate becomes the next release, which returns to execution and produces new experience.
+            </p>
+          </div>
 
           <aside class="promotion-boundary" aria-label="Promotion boundary">
             <p class="eyebrow eyebrow--dark">The promotion boundary</p>
@@ -262,24 +274,15 @@
             <h2 id="development-title">The North Star is defined. The path is under construction.</h2>
           </div>
           <div class="development__copy">
-            <p><strong>Phoxal is open source, pre-1.0, and under active development.</strong></p>
+            <p><strong>Open source <span aria-hidden="true">·</span> Pre-1.0 <span aria-hidden="true">·</span> Under active development</strong></p>
             <p>
               The architecture and implementation may change substantially as we search for the
-              simplest system that can fulfil this lifecycle without compromising its principles.
+              simplest system that can fulfill this lifecycle without compromising its principles.
             </p>
             <p>
               The project is being built in public. We welcome thoughtful discussion from robotics
               engineers, researchers, developers, and teams working on reliable autonomous systems.
             </p>
-            <div class="actions">
-              <a class="button button--dark" href="https://github.com/phoxal">
-                Follow the development on GitHub
-                <span aria-hidden="true">↗</span>
-              </a>
-              <a class="button button--text-dark" href="mailto:info@phoxal.com">
-                Start a conversation at info@phoxal.com
-              </a>
-            </div>
           </div>
         </div>
       </section>
