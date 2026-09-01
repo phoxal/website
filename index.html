@@ -5,250 +5,324 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Phoxal is an open-source, Rust-first framework for building reliable robots from simulation to deployment and safer iteration."
+      content="Phoxal is an open-source robotics framework for explicit validation, observable execution, repeatable evaluation, and controlled improvement."
     >
-    <meta name="theme-color" content="#06080B">
+    <meta name="theme-color" content="#f4f7f5">
 
-    <meta property="og:title" content="PHOXAL | Build robots that leave the lab">
+    <link rel="canonical" href="https://phoxal.com/">
+
+    <meta property="og:title" content="Phoxal Framework | Robots that improve without losing control">
     <meta
       property="og:description"
-      content="One coherent path from robot definition and simulation to deployment, observability, and safer iteration."
+      content="An open-source robotics framework for observable, repeatable, and deliberately evaluated improvement."
     >
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://phoxal.com/assets/logo_phoxal_vertical.png">
-
-    <title>PHOXAL | Build robots that leave the lab</title>
-
-    <link rel="icon" href="assets/phoxal-mark-transparent.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
-      rel="stylesheet"
+    <meta property="og:url" content="https://phoxal.com/">
+    <meta property="og:site_name" content="Phoxal Framework">
+    <meta property="og:image" content="https://phoxal.com/assets/phoxal-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta
+      property="og:image:alt"
+      content="Phoxal Framework: Build robots that improve without giving up control."
     >
-    <link rel="stylesheet" href="styles.css">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Phoxal Framework | Robots that improve without losing control">
+    <meta
+      name="twitter:description"
+      content="An open-source robotics framework for observable, repeatable, and deliberately evaluated improvement."
+    >
+    <meta name="twitter:image" content="https://phoxal.com/assets/phoxal-social-card.png">
+    <meta
+      name="twitter:image:alt"
+      content="Phoxal Framework: Build robots that improve without giving up control."
+    >
+
+    <title>Phoxal Framework | Robots that improve without losing control</title>
+
+    <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+    <link rel="stylesheet" href="styles.css?v=71ebe822">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="site-shell">
-      <header class="site-header" aria-label="Primary">
-        <a class="brand" href="/" aria-label="PHOXAL home">
-          <img class="brand-mark" src="assets/phoxal-mark-transparent.png" alt="" aria-hidden="true">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="/" aria-label="Phoxal home">
+          <img
+            src="assets/phoxal-mark-black-transparent.png"
+            width="429"
+            height="445"
+            alt=""
+            aria-hidden="true"
+          >
           <span>PHOXAL</span>
         </a>
 
-        <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#why-phoxal">Why Phoxal</a>
-          <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
-          <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
-          <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a class="section-link" href="#north-star">North Star</a>
+          <a class="section-link" href="#principles">Principles</a>
+          <a href="https://github.com/phoxal">GitHub</a>
+          <a href="mailto:info@phoxal.com">Contact</a>
         </nav>
-      </header>
+      </div>
+    </header>
 
-      <main id="main">
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-copy">
-            <img class="hero-logo" src="assets/phoxal-logo-vertical-transparent.png" alt="PHOXAL Robotics Framework">
-            <p class="status-badge">Open-source &middot; Pre-alpha</p>
-            <h1 id="hero-title">Build robots that can leave the lab.</h1>
-            <p class="hero-description">
-              Phoxal is a Rust-first robotics framework designed to give teams one coherent path
-              from robot definition and simulation to deployment and operation—without rebuilding
-              the stack at every stage.
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="content-width hero__inner">
+          <p class="status-label">Open source <span aria-hidden="true">·</span> Pre-1.0 <span aria-hidden="true">·</span> Under active development</p>
+          <h1 id="hero-title">Build robots that improve <span>without giving up control.</span></h1>
+
+          <div class="hero__support">
+            <p class="hero__definition">
+              Phoxal is an open-source robotics framework for turning robot experience into
+              observable, repeatable, and deliberately evaluated improvements.
             </p>
-            <p class="hero-note">
-              Model once. Test in simulation. Run on hardware. Understand every run. Ship the next
-              version with confidence.
-            </p>
-
-            <div class="hero-actions" role="group" aria-label="Primary links">
-              <a class="button button-primary" href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">
-                <span>Explore the framework</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7 17 17 7M9 7h8v8" />
-                </svg>
-              </a>
-              <a class="button button-secondary" href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">
-                <span>Follow on GitHub</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7 17 17 7M9 7h8v8" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <aside class="hero-visual" aria-labelledby="visual-title">
-            <div class="visual-copy">
-              <p class="eyebrow">One path, end to end</p>
-              <h2 id="visual-title">From first simulation to every field update.</h2>
-              <p>
-                Phoxal keeps the robot model, communication, timing, and runtime conventions
-                consistent as a system moves from development to hardware. Less glue. Fewer hidden
-                differences. Faster diagnosis when the real world disagrees.
-              </p>
-            </div>
-            <img src="assets/phoxal-system.svg" alt="">
-          </aside>
-        </section>
-
-        <section id="why-phoxal" class="section platform" aria-labelledby="platform-title">
-          <div class="section-heading">
-            <p class="eyebrow">Why Phoxal</p>
             <div>
-              <h2 id="platform-title">Infrastructure that stays out of the way.</h2>
-              <p class="section-intro">
-                Robotics teams should spend their time on the robot, not on stitching together
-                incompatible tools. Phoxal turns the common infrastructure into one understandable
-                system.
+              <p class="hero__promise">
+                Author the system. Validate it. Simulate it. Execute it. Understand what happened.
+                Prove the next candidate before it becomes the next release.
               </p>
+              <div class="actions" role="group" aria-label="Project links">
+                <a class="button button--primary" href="https://github.com/phoxal">
+                  Follow the project on GitHub
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <a class="button button--text" href="mailto:info@phoxal.com">
+                  Contact info@phoxal.com
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="feature-grid">
-            <article class="feature-card">
-              <span class="feature-index">01</span>
-              <h3>One source of truth</h3>
-              <p>Define the robot, its components, and its services once, then validate the complete system before launch.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-index">02</span>
-              <h3>Simulation-to-field continuity</h3>
-              <p>Use the same system boundaries and timing model in Webots and on real hardware.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-index">03</span>
-              <h3>Strong contracts</h3>
-              <p>Typed Rust interfaces catch integration mistakes early and make communication easier to inspect.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-index">04</span>
-              <h3>Process-level reliability</h3>
-              <p>Native, isolated processes make lifecycle, ownership, and failures explicit without an orchestration layer.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-index">05</span>
-              <h3>Evidence from every run</h3>
-              <p>Logs, telemetry, recordings, timing, and provenance are part of the system rather than an afterthought.</p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-index">06</span>
-              <h3>Safer iteration</h3>
-              <p>Inspectable, versioned runtime bundles create a deliberate path to deploy, recover, and roll back.</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="north-star" class="section" aria-labelledby="north-star-title">
-          <div class="section-heading">
-            <p class="eyebrow">Keep improving</p>
-            <div>
-              <h2 id="north-star-title">Turn every run into a better next release.</h2>
-              <p class="section-intro">
-                Bring your own models, policies, training stack, and evaluation logic. Phoxal is
-                being built to connect field experience to repeatable evaluation and deliberate
-                deployment—without letting production behavior change behind your back.
-              </p>
-            </div>
-          </div>
-
-          <div class="north-star-grid">
-            <figure class="north-star-promise">
-              <figcaption class="promise-label">Open by design</figcaption>
-              <blockquote>
-                Use the tools and learning methods that fit your robot. Keep the path to production
-                explicit, testable, and reversible.
-              </blockquote>
-              <p>
-                Phoxal defines the lifecycle, not your intelligence stack.
-              </p>
-            </figure>
-
-            <ul class="contract-points">
-              <li>
-                <span>01</span>
-                <div>
-                  <h3>Capture</h3>
-                  <p>Record typed state, outcomes, feedback, timing, and provenance from every run.</p>
-                </div>
-              </li>
-              <li>
-                <span>02</span>
-                <div>
-                  <h3>Create</h3>
-                  <p>Train or derive candidates outside the robot using the tools that fit the problem.</p>
-                </div>
-              </li>
-              <li>
-                <span>03</span>
-                <div>
-                  <h3>Prove</h3>
-                  <p>Compare each candidate in repeatable scenarios against the acceptance criteria that matter.</p>
-                </div>
-              </li>
-              <li>
-                <span>04</span>
-                <div>
-                  <h3>Ship</h3>
-                  <p>Promote a passing artifact into a versioned bundle with a known fallback and rollback path.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="section minimum-framework" aria-labelledby="minimum-framework-title">
-          <div class="section-heading">
-            <p class="eyebrow">Developer experience</p>
-            <div>
-              <h2 id="minimum-framework-title">From prototype to production, without rebuilding your stack.</h2>
-              <p class="section-intro">
-                A dependable robot framework should let developers move from definition to
-                simulation and hardware, diagnose failures, and recover without editing framework
-                internals or inventing custom glue.
-              </p>
-            </div>
-          </div>
-
-          <ul class="vision-grid">
-            <li>
-              <span>01</span>
-              <p>Build the complete robot from one validated project</p>
-            </li>
-            <li>
-              <span>02</span>
-              <p>Run the same system model in simulation and on hardware</p>
-            </li>
-            <li>
-              <span>03</span>
-              <p>Deploy, observe, stop, restart, and roll back with confidence</p>
-            </li>
-          </ul>
-        </section>
-
-        <section class="section status" aria-labelledby="status-title">
-          <div>
-            <p class="eyebrow">Built in the open</p>
-            <h2 id="status-title">A clear path to v1.</h2>
-          </div>
-          <p>
-            Phoxal is pre-alpha: the public repositories move quickly and interfaces can change.
-            The architecture and implementation are open today for robotics engineers who want to
-            explore the direction, challenge it, and follow the path toward a stable v1.
+          <p class="hero__principle">
+            Control is not the opposite of improvement. It is what makes improvement trustworthy.
           </p>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <footer class="site-footer">
-        <p>&copy; PHOXAL</p>
+      <section class="purpose section" aria-labelledby="purpose-title">
+        <div class="content-width editorial-grid">
+          <div>
+            <p class="eyebrow">The premise</p>
+            <h2 id="purpose-title">A robot should not become harder to understand as it becomes more capable.</h2>
+          </div>
+          <div class="prose-stack">
+            <p>
+              Robotics development can break into disconnected stages. A system is designed one
+              way, simulated another way, deployed through another set of tools, and diagnosed from
+              incomplete evidence after something goes wrong.
+            </p>
+            <p>
+              Learning can make that problem worse. A new model or policy may appear better, but
+              without repeatable evaluation, explicit promotion, and rollback, improvement becomes
+              hidden change.
+            </p>
+            <p>
+              Phoxal is being designed around a different premise: the path from an authored robot
+              to its next evaluated release should remain one coherent, inspectable lifecycle.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="north-star" class="north-star section" aria-labelledby="north-star-title">
+        <div class="content-width">
+          <div class="north-star__heading">
+            <div>
+              <p class="eyebrow eyebrow--dark">The North Star</p>
+              <h2 id="north-star-title">Every execution should make the next release better.</h2>
+            </div>
+            <p>
+              Improvement is a controlled loop. Each stage leaves enough evidence for the next
+              decision, and no candidate crosses into operation by accident.
+            </p>
+          </div>
+
+          <ol class="lifecycle">
+            <li>
+              <span class="lifecycle__index" aria-hidden="true">01</span>
+              <h3>Author</h3>
+              <p>Describe the robot, its capabilities, and its intended behavior explicitly.</p>
+            </li>
+            <li>
+              <span class="lifecycle__index" aria-hidden="true">02</span>
+              <h3>Validate</h3>
+              <p>Reject invalid, incomplete, and incompatible systems before they are allowed to run.</p>
+            </li>
+            <li>
+              <span class="lifecycle__index" aria-hidden="true">03</span>
+              <h3>Simulate</h3>
+              <p>Exercise the system repeatably without creating a second conceptual model of the robot.</p>
+            </li>
+            <li>
+              <span class="lifecycle__index" aria-hidden="true">04</span>
+              <h3>Execute</h3>
+              <p>Run with explicit responsibilities, bounded authority, and visible lifecycle transitions.</p>
+            </li>
+            <li>
+              <span class="lifecycle__index" aria-hidden="true">05</span>
+              <h3>Observe</h3>
+              <p>Capture what happened, when it happened, which version produced it, and who was responsible.</p>
+            </li>
+            <li>
+              <span class="lifecycle__index" aria-hidden="true">06</span>
+              <h3>Create</h3>
+              <p>Use experience and feedback to produce a candidate model, policy, configuration, or implementation.</p>
+            </li>
+            <li>
+              <span class="lifecycle__index" aria-hidden="true">07</span>
+              <h3>Evaluate</h3>
+              <p>Test the candidate in deterministic scenarios against explicit acceptance criteria.</p>
+            </li>
+            <li>
+              <span class="lifecycle__index" aria-hidden="true">08</span>
+              <h3>Promote</h3>
+              <p>Accept a proven candidate as the next version, with evidence and a reversible deployment path.</p>
+            </li>
+            <li>
+              <span class="lifecycle__index" aria-hidden="true">09</span>
+              <h3>Repeat</h3>
+              <p>Execute the next release, gather new experience, and continue improving.</p>
+            </li>
+          </ol>
+
+          <aside class="promotion-boundary" aria-label="Promotion boundary">
+            <p class="eyebrow eyebrow--dark">The promotion boundary</p>
+            <p>
+              A candidate does not become production behavior merely because it was created.
+              It becomes production behavior only after it has been evaluated and deliberately promoted.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="principles" class="principles section" aria-labelledby="principles-title">
+        <div class="content-width">
+          <div class="section-heading">
+            <p class="eyebrow">Trustworthy improvement</p>
+            <h2 id="principles-title">Improvement must remain governable.</h2>
+            <p>
+              These principles make the direction credible. They are boundaries for how a capable
+              robot changes, not optional features to add later.
+            </p>
+          </div>
+
+          <div class="principle-list">
+            <article class="principle">
+              <span aria-hidden="true">01</span>
+              <h3>Explicit authority</h3>
+              <p>
+                Every important decision, state transition, and physical action should have a clear
+                owner. Learning does not grant unrestricted control.
+              </p>
+            </article>
+            <article class="principle">
+              <span aria-hidden="true">02</span>
+              <h3>Deterministic validation</h3>
+              <p>
+                Invalid definitions and incompatible systems should fail before execution, not emerge
+                as ambiguous runtime behavior.
+              </p>
+            </article>
+            <article class="principle">
+              <span aria-hidden="true">03</span>
+              <h3>One lifecycle across simulation and reality</h3>
+              <p>
+                Simulation should exercise the same concepts and responsibilities used on hardware,
+                so its evidence remains meaningful.
+              </p>
+            </article>
+            <article class="principle">
+              <span aria-hidden="true">04</span>
+              <h3>Observable and attributable execution</h3>
+              <p>
+                Every run should retain enough state, timing, identity, and provenance to understand
+                what happened and why.
+              </p>
+            </article>
+            <article class="principle">
+              <span aria-hidden="true">05</span>
+              <h3>Evaluated and reversible change</h3>
+              <p>
+                New behavior should enter operation through explicit evaluation and promotion, with
+                a known version, evidence, fallback, and rollback path.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="development" class="development section" aria-labelledby="development-title">
+        <div class="content-width development__inner">
+          <div>
+            <p class="eyebrow eyebrow--warm">Development</p>
+            <h2 id="development-title">The North Star is defined. The path is under construction.</h2>
+          </div>
+          <div class="development__copy">
+            <p><strong>Phoxal is open source, pre-1.0, and under active development.</strong></p>
+            <p>
+              The architecture and implementation may change substantially as we search for the
+              simplest system that can fulfil this lifecycle without compromising its principles.
+            </p>
+            <p>
+              The project is being built in public. We welcome thoughtful discussion from robotics
+              engineers, researchers, developers, and teams working on reliable autonomous systems.
+            </p>
+            <div class="actions">
+              <a class="button button--dark" href="https://github.com/phoxal">
+                Follow the development on GitHub
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a class="button button--text-dark" href="mailto:info@phoxal.com">
+                Start a conversation at info@phoxal.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="invitation section" aria-labelledby="invitation-title">
+        <div class="content-width invitation__inner">
+          <p class="eyebrow">Built in the open</p>
+          <h2 id="invitation-title">Follow the build. Challenge the architecture. Start a conversation.</h2>
+          <div class="actions actions--centered">
+            <a class="button button--primary" href="https://github.com/phoxal">
+              View Phoxal on GitHub
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button--text" href="mailto:info@phoxal.com">
+              Email info@phoxal.com
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="site-footer">
+      <div class="content-width site-footer__inner">
+        <div>
+          <a class="brand" href="/" aria-label="Phoxal home">
+            <img
+              src="assets/phoxal-mark-black-transparent.png"
+              width="429"
+              height="445"
+              alt=""
+              aria-hidden="true"
+            >
+            <span>PHOXAL</span>
+          </a>
+          <p>Open source <span aria-hidden="true">·</span> Pre-1.0 <span aria-hidden="true">·</span> Under active development</p>
+        </div>
         <nav aria-label="Footer links">
-          <a href="#why-phoxal">Why Phoxal</a>
-          <a href="https://github.com/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on GitHub">GitHub</a>
-          <a href="https://github.com/phoxal/framework" target="_blank" rel="noreferrer" aria-label="Open the PHOXAL framework repository">Framework</a>
-          <a href="https://www.linkedin.com/company/phoxal" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on LinkedIn">LinkedIn</a>
-          <a href="https://www.youtube.com/@phoxalhq" target="_blank" rel="noreferrer" aria-label="Open PHOXAL on YouTube">YouTube</a>
+          <a href="https://github.com/phoxal">GitHub</a>
+          <a href="https://www.linkedin.com/company/phoxal">LinkedIn</a>
+          <a href="https://www.youtube.com/@phoxalhq">YouTube</a>
+          <a href="mailto:info@phoxal.com">info@phoxal.com</a>
         </nav>
-      </footer>
-    </div>
+      </div>
+    </footer>
   </body>
 </html>
